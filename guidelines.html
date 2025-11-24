@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication Guidelines - GlobalCom Guide</title>
+    <meta name="description" content="Comprehensive communication guidelines for global IT teams and customer interactions.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#000000',
+                        'secondary': '#333333',
+                        'accent': '#666666',
+                        'light': '#f8f9fa',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .expandable-section {
+            transition: all 0.3s ease;
+        }
+        
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .expandable-content.expanded {
+            max-height: 1000px;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #000000;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .pdf-download {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body class="font-body bg-white text-primary">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="font-display font-semibold text-xl">GlobalCom Guide</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-primary hover:text-secondary">Home</a>
+                    <a href="guidelines.html" class="nav-link text-primary hover:text-secondary font-semibold">Guidelines</a>
+                    <a href="scenarios.html" class="nav-link text-primary hover:text-secondary">Practice</a>
+                    <a href="resources.html" class="nav-link text-primary hover:text-secondary">Resources</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PDF Download Button -->
+    <div class="pdf-download">
+        <button id="download-pdf" class="bg-primary text-white p-4 rounded-full shadow-lg hover:bg-secondary transition-all">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-light">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12 reveal">
+                <h1 class="font-display text-4xl lg:text-6xl font-bold text-primary mb-6">
+                    Communication Guidelines
+                </h1>
+                <p class="text-xl text-secondary max-w-3xl mx-auto">
+                    Professional standards for effective global communication in IT environments
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Principles Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12 reveal">
+                <h2 class="font-display text-3xl font-bold text-primary mb-6">Core Communication Principles</h2>
+                <p class="text-secondary text-lg max-w-3xl">
+                    These fundamental principles form the foundation of effective global communication in professional IT environments.
+                </p>
+            </div>
+            
+            <div class="space-y-8">
+                <div class="expandable-section bg-light rounded-xl p-8 reveal">
+                    <button class="expandable-btn w-full text-left flex items-center justify-between">
+                        <h3 class="font-display text-2xl font-semibold text-primary">1. Clarity and Simplicity</h3>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="expandable-content mt-6">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-semibold text-lg mb-4">Best Practices</h4>
+                                <ul class="space-y-2 text-secondary">
+                                    <li class="flex items-start">
+                                        <span class="text-primary mr-2">•</span>
+                                        Use short, clear sentences (15-20 words maximum)
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-primary mr-2">•</span>
+                                        Avoid jargon, acronyms, and technical slang
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-primary mr-2">•</span>
+                                        Choose universal English terms over regional expressions
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-primary mr-2">•</span>
+                                        Break complex information into bullet points
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-4">Examples</h4>
+                                <div class="space-y-4">
+                                    <div class="bg-white p-4 rounded-lg border">
+                                        <p class="text-sm text-secondary mb-2">Instead of:</p>
+                                        <p class="text-primary italic">"Let's circle back on this ASAP to leverage our synergies."</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border">
+                                        <p class="text-sm text-secondary mb-2">Use:</p>
+                                        <p class="text-primary">"Let's schedule a follow-up meeting this week to discuss how we can work together effectively."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expandable-section bg-light rounded-xl p-8 reveal">
+                    <button class="expandable-btn w-full text-left flex items-center justify-between">
+                        <h3 class="font-display text-2xl font-semibold text-primary">2. Professional Tone and Politeness</h3>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="expandable-content mt-6">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-semibold text-lg mb-4">Essential Phrases</h4>
+                                <ul class="space-y-2 text-secondary">
+                                    <li class="flex items-start">
+                                        <span class="text-primary mr-2">•</span>
+                                        "Please" and "Thank you" in every request
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-primary mr-2">•</span>
+                                        "I appreciate your patience" during delays
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-primary mr-2">•</span>
+                                        "I understand your concern" when addressing issues
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-primary mr-2">•</span>
+                                        "May I clarify..." to ensure understanding
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-4">Tone Guidelines</h4>
+                                <div class="space-y-4">
+                                    <div class="bg-white p-4 rounded-lg border">
+                                        <p class="font-semibold text-primary mb-2">DO:</p>
+                                        <ul class="text-sm text-secondary space-y-1">
+                                            <li>• Remain calm and neutral</li>
+                                            <li>• Focus on solutions, not problems</li>
+                                            <li>• Use inclusive language</li>
+                                            <li>• Acknowledge emotions respectfully</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border">
+                                        <p class="font-semibold text-primary mb-2">AVOID:</p>
+                                        <ul class="text-sm text-secondary space-y-1">
+                                            <li>• Sarcasm or irony</li>
+                                            <li>• Aggressive or defensive language</li>
+                                            <li>• Blame or accusations</li>
+                                            <li>• Overly casual expressions</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expandable-section bg-light rounded-xl p-8 reveal">
+                    <button class="expandable-btn w-full text-left flex items-center justify-between">
+                        <h3 class="font-display text-2xl font-semibold text-primary">3. Confirmation and Clarification</h3>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="expandable-content mt-6">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-semibold text-lg mb-4">Confirmation Phrases</h4>
+                                <div class="space-y-3">
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-medium text-primary">"Just to confirm..."</p>
+                                        <p class="text-sm text-secondary">Use before restating key points</p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-medium text-primary">"If I understand correctly..."</p>
+                                        <p class="text-sm text-secondary">Use to verify your understanding</p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg">
+                                        <p class="font-medium text-primary">"Let me summarize..."</p>
+                                        <p class="text-sm text-secondary">Use to recap important details</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-4">Active Listening Techniques</h4>
+                                <ul class="space-y-2 text-secondary">
+                                    <li class="flex items-start">
+                                        <span class="text-primary mr-2">•</span>
+                                        Paraphrase what you heard
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-primary mr-2">•</span>
+                                        Ask open-ended questions
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-primary mr-2">•</span>
+                                        Take notes during conversations
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-primary mr-2">•</span>
+                                        Follow up with written summaries
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Guidelines Section -->
+    <section id="email" class="py-16 bg-light">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12 reveal">
+                <h2 class="font-display text-3xl font-bold text-primary mb-6">Email Communication Guidelines</h2>
+                <p class="text-secondary text-lg max-w-3xl">
+                    Professional email standards for global communication, considering cultural differences and time zones.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl p-8 reveal">
+                        <h3 class="font-display text-xl font-semibold mb-6">Subject Line Best Practices</h3>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-primary pl-4">
+                                <p class="font-medium text-primary mb-1">Clear and Specific</p>
+                                <p class="text-secondary text-sm">"Meeting Request: Project Update - March 15"</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-4">
+                                <p class="font-medium text-primary mb-1">Action Required</p>
+                                <p class="text-secondary text-sm">"Action Needed: Budget Approval by Friday"</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-4">
+                                <p class="font-medium text-primary mb-1">Time Sensitive</p>
+                                <p class="text-secondary text-sm">"URGENT: Server Issue - Response Needed"</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-8 reveal">
+                        <h3 class="font-display text-xl font-semibold mb-6">Cultural Considerations</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-semibold">JP</div>
+                                <div>
+                                    <p class="font-medium text-primary">Japan</p>
+                                    <p class="text-secondary text-sm">Use formal greetings, avoid direct confrontation</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-semibold">DE</div>
+                                <div>
+                                    <p class="font-medium text-primary">Germany</p>
+                                    <p class="text-secondary text-sm">Direct communication, respect for hierarchy</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-semibold">US</div>
+                                <div>
+                                    <p class="font-medium text-primary">United States</p>
+                                    <p class="text-secondary text-sm">Can be more casual, first names acceptable</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl p-8 reveal">
+                        <h3 class="font-display text-xl font-semibold mb-6">Email Structure Template</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="font-mono text-sm text-primary">
+                                    Subject: [Action/Topic] - [Date/Deadline]<br><br>
+                                    Dear [Title] [Last Name],<br><br>
+                                    I hope this email finds you well.<br><br>
+                                    [Purpose - State clearly why you're writing]<br><br>
+                                    [Details - Provide context and necessary information]<br><br>
+                                    [Action Required - Specify what you need]<br><br>
+                                    Please let me know if you need any clarification.<br><br>
+                                    Best regards,<br>
+                                    [Your Name]<br>
+                                    [Your Title]<br>
+                                    [Contact Information]
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-8 reveal">
+                        <h3 class="font-display text-xl font-semibold mb-6">Response Time Expectations</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                <span class="text-secondary">Internal Teams</span>
+                                <span class="font-medium text-primary">4-6 hours</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                <span class="text-secondary">Customers</span>
+                                <span class="font-medium text-primary">1-2 hours</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                <span class="text-secondary">Vendors/Partners</span>
+                                <span class="font-medium text-primary">24 hours</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2">
+                                <span class="text-secondary">Weekend/Holiday</span>
+                                <span class="font-medium text-primary">Next business day</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Support Guidelines -->
+    <section id="support" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12 reveal">
+                <h2 class="font-display text-3xl font-bold text-primary mb-6">Customer Support Communication</h2>
+                <p class="text-secondary text-lg max-w-3xl">
+                    Professional standards for customer interactions, issue resolution, and support communication.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="bg-light rounded-xl p-8 reveal">
+                    <h3 class="font-display text-xl font-semibold mb-6">Conversation Starters</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="font-medium text-primary mb-2">Initial Contact</p>
+                            <p class="text-secondary text-sm">"Hello [Name], hope you're doing well. How can I assist you today?"</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="font-medium text-primary mb-2">Follow-up</p>
+                            <p class="text-secondary text-sm">"I wanted to check in regarding your recent inquiry about..."</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="font-medium text-primary mb-2">Proactive Update</p>
+                            <p class="text-secondary text-sm">"I'm reaching out to provide an update on your case..."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-light rounded-xl p-8 reveal">
+                    <h3 class="font-display text-xl font-semibold mb-6">Problem Resolution</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="font-medium text-primary mb-2">Acknowledging Issues</p>
+                            <p class="text-secondary text-sm">"I understand your concern, and I'm here to help resolve this for you."</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="font-medium text-primary mb-2">Providing Solutions</p>
+                            <p class="text-secondary text-sm">"Here are the steps we can take to address this issue..."</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="font-medium text-primary mb-2">Seeking Information</p>
+                            <p class="text-secondary text-sm">"Could you please share more details so I can better assist you?"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-light rounded-xl p-8 reveal">
+                    <h3 class="font-display text-xl font-semibold mb-6">Closing Conversations</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="font-medium text-primary mb-2">Before Ending</p>
+                            <p class="text-secondary text-sm">"Is there anything else I can help you with today?"</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="font-medium text-primary mb-2">Thank You</p>
+                            <p class="text-secondary text-sm">"Thank you for your patience while I resolved this for you."</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <p class="font-medium text-primary mb-2">Future Contact</p>
+                            <p class="text-secondary text-sm">"Please don't hesitate to reach out if you need further assistance."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Meeting Guidelines -->
+    <section id="virtual" class="py-16 bg-light">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12 reveal">
+                <h2 class="font-display text-3xl font-bold text-primary mb-6">Virtual Meeting Protocols</h2>
+                <p class="text-secondary text-lg max-w-3xl">
+                    Best practices for conducting effective virtual meetings with global teams and clients.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl p-8 reveal">
+                        <h3 class="font-display text-xl font-semibold mb-6">Pre-Meeting Preparation</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-xs font-semibold mt-1">1</div>
+                                <div>
+                                    <p class="font-medium text-primary">Send agenda 24 hours in advance</p>
+                                    <p class="text-secondary text-sm">Include meeting objectives, time allocation, and required preparation</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-xs font-semibold mt-1">2</div>
+                                <div>
+                                    <p class="font-medium text-primary">Test technology and connection</p>
+                                    <p class="text-secondary text-sm">Check audio, video, screen sharing, and backup plans</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-xs font-semibold mt-1">3</div>
+                                <div>
+                                    <p class="font-medium text-primary">Consider time zones</p>
+                                    <p class="text-secondary text-sm">Rotate meeting times for global fairness, provide recordings</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-8 reveal">
+                        <h3 class="font-display text-xl font-semibold mb-6">During the Meeting</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="font-medium text-primary mb-2">Opening (5 minutes)</p>
+                                <ul class="text-sm text-secondary space-y-1">
+                                    <li>• Welcome and introductions</li>
+                                    <li>• Review agenda and objectives</li>
+                                    <li>• Confirm time allocation</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="font-medium text-primary mb-2">Discussion (Main time)</p>
+                                <ul class="text-sm text-secondary space-y-1">
+                                    <li>• Follow agenda strictly</li>
+                                    <li>• Encourage participation from all</li>
+                                    <li>• Summarize key points regularly</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="font-medium text-primary mb-2">Closing (5-10 minutes)</p>
+                                <ul class="text-sm text-secondary space-y-1">
+                                    <li>• Summarize decisions and actions</li>
+                                    <li>• Confirm next steps and owners</li>
+                                    <li>• Schedule follow-up if needed</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl p-8 reveal">
+                        <h3 class="font-display text-xl font-semibold mb-6">Communication Guidelines</h3>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-primary pl-4">
+                                <p class="font-medium text-primary mb-1">Speak Clearly and Slowly</p>
+                                <p class="text-secondary text-sm">Enunciate words, pause between sentences, avoid speaking too quickly</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-4">
+                                <p class="font-medium text-primary mb-1">Use Visual Aids</p>
+                                <p class="text-secondary text-sm">Share screens, use chat for key points, provide visual context</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-4">
+                                <p class="font-medium text-primary mb-1">Manage Participation</p>
+                                <p class="text-secondary text-sm">Use hand raising, call on people by name, ensure everyone contributes</p>
+                            </div>
+                            <div class="border-l-4 border-primary pl-4">
+                                <p class="font-medium text-primary mb-1">Record and Share</p>
+                                <p class="text-secondary text-sm">Record meetings (with permission), share notes and action items</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-8 reveal">
+                        <h3 class="font-display text-xl font-semibold mb-6">Cultural Considerations</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                <span class="text-secondary">Direct vs. Indirect</span>
+                                <span class="text-sm text-primary">Adapt communication style</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                <span class="text-secondary">Silence Acceptance</span>
+                                <span class="text-sm text-primary">Comfortable with pauses</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                <span class="text-secondary">Decision Making</span>
+                                <span class="text-sm text-primary">Consensus vs. individual</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2">
+                                <span class="text-secondary">Follow-up Style</span>
+                                <span class="text-sm text-primary">Written vs. verbal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Communication Section -->
+    <section id="cultural" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12 reveal">
+                <h2 class="font-display text-3xl font-bold text-primary mb-6">Cross-Cultural Communication</h2>
+                <p class="text-secondary text-lg max-w-3xl">
+                    Understanding and adapting to cultural differences in global business communication.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="bg-light rounded-xl p-8 reveal">
+                        <h3 class="font-display text-xl font-semibold mb-6">Key Cultural Dimensions</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-semibold text-primary mb-3">Communication Style</h4>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-medium text-primary mb-2">Direct</p>
+                                        <p class="text-sm text-secondary">US, Germany, Netherlands</p>
+                                        <p class="text-xs text-secondary mt-1">Say what you mean</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-medium text-primary mb-2">Indirect</p>
+                                        <p class="text-sm text-secondary">Japan, China, Korea</p>
+                                        <p class="text-xs text-secondary mt-1">Context and harmony</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-primary mb-3">Formality Level</h4>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-medium text-primary mb-2">High Formality</p>
+                                        <p class="text-sm text-secondary">Japan, Germany, France</p>
+                                        <p class="text-xs text-secondary mt-1">Titles, proper address</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg">
+                                        <p class="font-medium text-primary mb-2">Low Formality</p>
+                                        <p class="text-sm text-secondary">US, Australia, Canada</p>
+                                        <p class="text-xs text-secondary mt-1">First names, casual</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="bg-light rounded-xl p-8 reveal">
+                        <h3 class="font-display text-xl font-semibold mb-6">Practical Guidelines</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-primary mb-2">Research Before Communication</h4>
+                                <ul class="text-sm text-secondary space-y-1">
+                                    <li>• Learn basic cultural etiquette</li>
+                                    <li>• Understand business hierarchies</li>
+                                    <li>• Know appropriate greetings</li>
+                                    <li>• Research communication preferences</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-primary mb-2">Adapt Your Approach</h4>
+                                <ul class="text-sm text-secondary space-y-1">
+                                    <li>• Adjust formality level</li>
+                                    <li>• Modify directness</li>
+                                    <li>• Respect decision-making styles</li>
+                                    <li>• Be patient with different paces</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-primary mb-2">Build Relationships</h4>
+                                <ul class="text-sm text-secondary space-y-1">
+                                    <li>• Show genuine interest in culture</li>
+                                    <li>• Ask respectful questions</li>
+                                    <li>• Be open to learning</li>
+                                    <li>• Acknowledge differences positively</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <div class="font-display text-2xl font-semibold mb-4">GlobalCom Guide</div>
+                <p class="text-gray-400 mb-6">Professional Communication Standards for Global IT Teams</p>
+                <div class="text-sm text-gray-500">
+                    Co-Founders: Pranav & Ajay<br>
+                    © 2025 GlobalCom Guide. Designed for professional development and communication excellence.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

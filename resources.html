@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - GlobalCom Guide</title>
+    <meta name="description" content="Downloadable templates, checklists, and reference guides for professional global communication.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#000000',
+                        'secondary': '#333333',
+                        'accent': '#666666',
+                        'light': '#f8f9fa',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #000000;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .resource-card {
+            transition: all 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .download-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .search-box {
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:focus {
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-filter {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .category-filter.active {
+            background-color: #000000;
+            color: white;
+        }
+        
+        .category-filter:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .category-filter.active:hover {
+            background-color: #333333;
+        }
+    </style>
+</head>
+<body class="font-body bg-white text-primary">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="font-display font-semibold text-xl">GlobalCom Guide</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-primary hover:text-secondary">Home</a>
+                    <a href="guidelines.html" class="nav-link text-primary hover:text-secondary">Guidelines</a>
+                    <a href="scenarios.html" class="nav-link text-primary hover:text-secondary">Practice</a>
+                    <a href="resources.html" class="nav-link text-primary hover:text-secondary font-semibold">Resources</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-light">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12 reveal">
+                <h1 class="font-display text-4xl lg:text-6xl font-bold text-primary mb-6">
+                    Resource Library
+                </h1>
+                <p class="text-xl text-secondary max-w-3xl mx-auto">
+                    Downloadable templates, checklists, and reference guides for professional global communication
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="py-8 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-6 items-center justify-between">
+                <div class="w-full lg:w-96">
+                    <div class="relative">
+                        <input type="text" id="search-input" placeholder="Search resources..." 
+                               class="search-box w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                        <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-2">
+                    <button class="category-filter active px-4 py-2 rounded-lg border border-gray-300" data-category="all">All</button>
+                    <button class="category-filter px-4 py-2 rounded-lg border border-gray-300" data-category="templates">Templates</button>
+                    <button class="category-filter px-4 py-2 rounded-lg border border-gray-300" data-category="checklists">Checklists</button>
+                    <button class="category-filter px-4 py-2 rounded-lg border border-gray-300" data-category="guides">Guides</button>
+                    <button class="category-filter px-4 py-2 rounded-lg border border-gray-300" data-category="tools">Tools</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Grid -->
+    <section class="py-16 bg-light">
+        <div class="max-w-7xl mx-auto px-6">
+            <div id="resources-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Email Templates -->
+                <div class="resource-card bg-white rounded-xl p-8 reveal" data-category="templates">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-4">Professional Email Templates</h3>
+                    <p class="text-secondary mb-6">Ready-to-use email templates for various business scenarios including meeting requests, follow-ups, and customer communications.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-secondary">PDF • 15 templates</span>
+                        <button class="download-btn bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary" data-file="email-templates">
+                            Download
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="resource-card bg-white rounded-xl p-8 reveal" data-category="templates">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-4">Meeting Agenda Templates</h3>
+                    <p class="text-secondary mb-6">Structured templates for virtual and in-person meetings with time allocation and action items.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-secondary">DOCX • 8 templates</span>
+                        <button class="download-btn bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary" data-file="meeting-templates">
+                            Download
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="resource-card bg-white rounded-xl p-8 reveal" data-category="checklists">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-4">Communication Checklist</h3>
+                    <p class="text-secondary mb-6">Essential checklist for effective communication including pre-send email review and meeting preparation.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-secondary">PDF • Interactive</span>
+                        <button class="download-btn bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary" data-file="communication-checklist">
+                            Download
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="resource-card bg-white rounded-xl p-8 reveal" data-category="checklists">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-4">Cultural Communication Guide</h3>
+                    <p class="text-secondary mb-6">Quick reference guide for communicating with different cultures including etiquette and preferences.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-secondary">PDF • 20 countries</span>
+                        <button class="download-btn bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary" data-file="cultural-guide">
+                            Download
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="resource-card bg-white rounded-xl p-8 reveal" data-category="guides">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-4">Virtual Meeting Guide</h3>
+                    <p class="text-secondary mb-6">Comprehensive guide for conducting effective virtual meetings with global teams and clients.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-secondary">PDF • 25 pages</span>
+                        <button class="download-btn bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary" data-file="virtual-meeting-guide">
+                            Download
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="resource-card bg-white rounded-xl p-8 reveal" data-category="guides">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-4">Customer Support Handbook</h3>
+                    <p class="text-secondary mb-6">Complete handbook for customer service communication including scripts and escalation procedures.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-secondary">PDF • 40 pages</span>
+                        <button class="download-btn bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary" data-file="customer-support-handbook">
+                            Download
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="resource-card bg-white rounded-xl p-8 reveal" data-category="tools">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-4">Communication Toolkit</h3>
+                    <p class="text-secondary mb-6">Collection of useful tools including timezone converters, language translators, and etiquette guides.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-secondary">ZIP • 5 tools</span>
+                        <button class="download-btn bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary" data-file="communication-toolkit">
+                            Download
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="resource-card bg-white rounded-xl p-8 reveal" data-category="tools">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-4">Metrics Dashboard</h3>
+                    <p class="text-secondary mb-6">Track and measure your communication effectiveness with key performance indicators and analytics.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-secondary">Excel • Template</span>
+                        <button class="download-btn bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary" data-file="metrics-dashboard">
+                            Download
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="resource-card bg-white rounded-xl p-8 reveal" data-category="templates">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a1 1 0 011-1h6a1 1 0 011 1v4h3a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2h3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-4">Presentation Templates</h3>
+                    <p class="text-secondary mb-6">Professional presentation templates designed for global audiences with cultural considerations.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-secondary">PPTX • 6 templates</span>
+                        <button class="download-btn bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary" data-file="presentation-templates">
+                            Download
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="resource-card bg-white rounded-xl p-8 reveal" data-category="checklists">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-4">Crisis Communication Plan</h3>
+                    <p class="text-secondary mb-6">Step-by-step plan for handling communication during challenging situations and crises.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-secondary">PDF • Action plan</span>
+                        <button class="download-btn bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary" data-file="crisis-communication">
+                            Download
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="resource-card bg-white rounded-xl p-8 reveal" data-category="guides">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-4">Communication FAQ</h3>
+                    <p class="text-secondary mb-6">Frequently asked questions about global communication with expert answers and best practices.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-secondary">PDF • 50+ Q&As</span>
+                        <button class="download-btn bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary" data-file="communication-faq">
+                            Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Reference Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12 reveal">
+                <h2 class="font-display text-3xl font-bold text-primary mb-6">Quick Reference</h2>
+                <p class="text-secondary text-lg max-w-3xl mx-auto">
+                    Essential communication phrases and guidelines at your fingertips
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-light rounded-xl p-6 reveal">
+                    <h3 class="font-display text-lg font-semibold mb-4">Professional Greetings</h3>
+                    <div class="space-y-2 text-sm">
+                        <p><span class="font-medium text-primary">Formal:</span> Dear Mr./Ms. [Last Name]</p>
+                        <p><span class="font-medium text-primary">Neutral:</span> Hello [First Name]</p>
+                        <p><span class="font-medium text-primary">Group:</span> Dear Team</p>
+                        <p><span class="font-medium text-primary">Unknown:</span> To Whom It May Concern</p>
+                    </div>
+                </div>
+                
+                <div class="bg-light rounded-xl p-6 reveal">
+                    <h3 class="font-display text-lg font-semibold mb-4">Closing Phrases</h3>
+                    <div class="space-y-2 text-sm">
+                        <p><span class="font-medium text-primary">Formal:</span> Sincerely</p>
+                        <p><span class="font-medium text-primary">Professional:</span> Best regards</p>
+                        <p><span class="font-medium text-primary">Friendly:</span> Best wishes</p>
+                        <p><span class="font-medium text-primary">Casual:</span> Thanks</p>
+                    </div>
+                </div>
+                
+                <div class="bg-light rounded-xl p-6 reveal">
+                    <h3 class="font-display text-lg font-semibold mb-4">Response Times</h3>
+                    <div class="space-y-2 text-sm">
+                        <p><span class="font-medium text-primary">Internal:</span> 4-6 hours</p>
+                        <p><span class="font-medium text-primary">Customers:</span> 1-2 hours</p>
+                        <p><span class="font-medium text-primary">Partners:</span> 24 hours</p>
+                        <p><span class="font-medium text-primary">Weekend:</span> Next business day</p>
+                    </div>
+                </div>
+                
+                <div class="bg-light rounded-xl p-6 reveal">
+                    <h3 class="font-display text-lg font-semibold mb-4">Cultural Tips</h3>
+                    <div class="space-y-2 text-sm">
+                        <p><span class="font-medium text-primary">Japan:</span> Indirect, formal</p>
+                        <p><span class="font-medium text-primary">Germany:</span> Direct, punctual</p>
+                        <p><span class="font-medium text-primary">USA:</span> Casual, friendly</p>
+                        <p><span class="font-medium text-primary">Global:</span> Clear, simple</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Confirmation Modal -->
+    <div id="download-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h3 class="font-display text-xl font-semibold mb-2">Download Started!</h3>
+                <p class="text-secondary text-sm mb-6">Your file is being downloaded. Check your downloads folder.</p>
+                <button id="close-download-modal" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary transition-all">
+                    Continue Browsing
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <div class="font-display text-2xl font-semibold mb-4">GlobalCom Guide</div>
+                <p class="text-gray-400 mb-6">Professional Communication Standards for Global IT Teams</p>
+                <div class="text-sm text-gray-500">
+                    Co-Founders: Pranav & Ajay<br>
+                    © 2025 GlobalCom Guide. Designed for professional development and communication excellence.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
